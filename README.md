@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Этот демонстрационный проект написан на [Next.js 15.4.6](https://nextjs.org).
 
-## Getting Started
+## Запуск
 
-First, run the development server:
+Убедитесь, что у вас установлена версия Node.js 18+. Перед запуском необходимо установить зависимости (npm install внутри project.json). Проект тестировался в дев режиме, поэтому рекомендуется запуск через npm run dev.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Описание
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Данный проект явялется тестовым заданием для NTS Design. Его суть заключается в демонстрации использования Next.js. Само приложение должно из себя представлять CRUD записей о событиях, реализованный полностью на фронт-энд части.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Функционал:
+- Отображение всех событий на странице.
+- Редактирование, удаление и создание событий.
+- Фильтрация по категориям, сортировка по дате и имени, поиск по имени и описанию.
+- Добавление в "избранное" и просмотр в отдельной вкладке.
+- Экспорт отображенных записей в JSON файл.
+- Бесконечная прокрутка с мануальной прогрузкой.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Архитектура:
+- Приложение само по себе очень простое и не использует сложной архитектуры.
+- Простое разбиение UI на компоненты, большинство которых рендерятся на клиенте.
+- Только один компонент хранит в себе состояние страницы, остальные stateless, однако многие зависят от пропов от родителя.
+- Рабочие данные событий хранятся и обновляются в localStorage. В качестве компромисса того, что запросы к БД должны быть отдельными, все манипуляции с localStorage производятся в отдельном сервисе, симулируя fetch к внешним ресурсам.
+- Из-за строгого требования не использовать внешний back-end было решено пренебречь требованием SSR в пользу простого манипулирования с localStorage. Возможно, это мое упущение, но я не нашел простого способа хранить данные для серверных компонентов, чтобы сервер рендер происходил.
