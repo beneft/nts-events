@@ -3,8 +3,8 @@ import { Event } from "@/lib/types";
 const STORAGE_KEY = "events";
 
 const defaultEvents: Event[] = [
-    { id: 1, title: "Tech Conference 2025", description: "Annual tech conference on AI and ML", date: "2025-05-15T10:00:00Z", category: "Conference", status: "Planned" },
-    { id: 2, title: "Team Meetup", description: "Monthly team sync", date: "2025-04-30T14:00:00Z", category: "Meeting", status: "Completed" },
+    { id: 1, title: "Тех Конференция 2025", description: "Ежегодная конференция по разработке ПО", date: "2025-05-15T10:00:00Z", category: "Conference", status: "Planned" },
+    { id: 2, title: "Спринт ревью", description: "Нужно всех поругать", date: "2025-04-30T14:00:00Z", category: "Meeting", status: "Completed" },
 ];
 
 const read = (): Event[] => {

@@ -80,13 +80,13 @@ export default function EventForm({ event, onSave, onClose }: Props) {
                     />
                     {errors.date && <p className="text-red-500">{errors.date.message}</p>}
                     <select {...register("category")} className="border p-2 w-full rounded">
-                        <option value="Conference">Conference</option>
-                        <option value="Meeting">Meeting</option>
-                        <option value="Webinar">Webinar</option>
+                        <option value="Conference">Конференция</option>
+                        <option value="Meeting">Встреча</option>
+                        <option value="Webinar">Вебинар</option>
                     </select>
                     <select {...register("status")} className="border p-2 w-full rounded">
-                        <option value="Planned">Planned</option>
-                        <option value="Completed">Completed</option>
+                        <option value="Planned">Запланировано</option>
+                        <option value="Completed">Завершено</option>
                     </select>
                     <div className="flex justify-end gap-2 mt-4">
                         <button type="button" onClick={onClose} className="px-4 py-2 rounded border">
